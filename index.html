@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/scrip.js"></script>
+
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">ModaStyle</div>
+        <p id="bienvenido"></p>
+        <ul id="buttonsUser">
+            <li><a href="#" class="nav-link" id="btnCrearCuenta">Crear cuenta</a></li>
+            <li><a href="#" class="nav-link" id="btnIniciarSesion">Iniciar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Nueva Colección 2025</h1>
+        <p>Moda moderna, calidad premium, estilo único.</p>
+    </div>
+
+    <!-- PRODUCTOS -->
+    <section class="products-section">
+        <h2 class="products-title">Productos destacados</h2>
+
+        <div class="products-container">
+            <div class="product-card">
+                <img src="img/pexels-photo-428338.jpeg" alt="">
+                <h3>Chaqueta de cuero</h3>
+                <p>$89.99</p>
+            </div>
+
+            <div class="product-card">
+                <img src="img/pexels-photo-298863.jpeg" alt="">
+                <h3>Sudadera casual</h3>
+                <p>$45.99</p>
+            </div>
+
+            <div class="product-card">
+                <img src="img/pexels-photo-7679721.jpeg" alt="">
+                <h3>Camisa elegante</h3>
+                <p>$39.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL REGISTRO -->
+    <div class="modal" id="modalRegistro">
+        <div class="modal-content">
+            <h2>Crear Cuenta</h2>
+
+            <form id="formRegistro">
+                <div class="input-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="nombreCompleto" placeholder="Ej: Juan Pérez García" required>
+                    <span class="error-msg" id="errorNombre"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Nombre de Usuario (Correo Electrónico)</label>
+                    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+                    <span class="error-msg" id="errorCorreo"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Número Móvil</label>
+                    <input type="tel" id="celular" placeholder="Ej: 3001234567" required>
+                    <span class="error-msg" id="errorCelular"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="contrasena" placeholder="Mínimo 6 caracteres" required>
+                        <span class="toggle-password" data-target="contrasena">👁️</span>
+                    </div>
+                    <span class="error-msg" id="errorContrasena"></span>
+                </div>
+
+                <button type="submit" class="btn">Registrarse</button>
+            </form>
+
+            <div class="close-btn" id="closeModalRegistro">Cerrar</div>
+        </div>
+    </div>
+
+    <!-- MODAL ADVERTENCIA -->
+    <div class="modal" id="modalAdvertencia">
+        <div class="modal-content modal-advertencia">
+            <div class="icono-advertencia">⚠️</div>
+            <h2>Atención</h2>
+            <p class="mensaje-advertencia">Primero crea una cuenta</p>
+            <button class="btn btn-advertencia" id="btnCerrarAdvertencia">Entendido</button>
+        </div>
+    </div>
+
+    <!-- MODAL INICIO DE SESIÓN -->
+    <div class="modal" id="modalLogin">
+        <div class="modal-content">
+            <h2>Iniciar Sesión</h2>
+
+            <form id="formLogin">
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="loginCorreo" placeholder="ejemplo@correo.com" required>
+                    <span class="error-msg" id="errorLoginCorreo"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="loginContrasena" placeholder="Ingrese su contraseña" required>
+                        <span class="toggle-password" data-target="loginContrasena">👁️</span>
+                    </div>
+                    <span class="error-msg" id="errorLoginContrasena"></span>
+                </div>
+
+                <div id="mensajeBloqueo" class="mensaje-bloqueo" style="display: none;">
+                    <p>⚠️ Cuenta bloqueada por intentos fallidos.</p>
+                    <a href="#" id="btnRecuperarContrasena" class="link-recuperar">Recuperar contraseña</a>
+                </div>
+
+                <button type="submit" class="btn" id="btnLogin">Iniciar Sesión</button>
+            </form>
+            <div class="close-btn" id="btnCrearCuentaLogin">crear cuenta</div>
+            <div class="close-btn" id="closeModalLogin">Cerrar</div>
+        </div>
+    </div>
+
+    <!-- MODAL RECUPERAR CONTRASEÑA -->
+    <div class="modal" id="modalRecuperar">
+        <div class="modal-content">
+            <h2>Recuperar Contraseña</h2>
+            <p class="subtitulo-recuperar">Ingrese su correo y cree una nueva contraseña</p>
+
+            <form id="formRecuperar">
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="recuperarCorreo" placeholder="ejemplo@correo.com" required>
+                    <span class="error-msg" id="errorRecuperarCorreo"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Nueva Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="nuevaContrasena" placeholder="Mínimo 6 caracteres" required>
+                        <span class="toggle-password" data-target="nuevaContrasena">👁️</span>
+                    </div>
+                    <span class="error-msg" id="errorNuevaContrasena"></span>
+                    <span class="info-password">La contraseña debe incluir mayúsculas, minúsculas, números y caracteres especiales</span>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmar Nueva Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmarContrasena" placeholder="Repita la contraseña" required>
+                        <span class="toggle-password" data-target="confirmarContrasena">👁️</span>
+                    </div>
+                    <span class="error-msg" id="errorConfirmarContrasena"></span>
+                </div>
+
+                <button type="submit" class="btn">Actualizar Contraseña</button>
+            </form>
+
+            <div class="close-btn" id="closeModalRecuperar">Cerrar</div>
+        </div>
+    </div>
+
+
+</body>
+</html>
